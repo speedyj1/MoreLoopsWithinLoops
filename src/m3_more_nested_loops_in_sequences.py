@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jack Speedy.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
 def run_test_largest_number():
     """ Tests the    largest_number    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  largest_number  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # ------------------------------------------------------------------
@@ -44,7 +44,12 @@ def run_test_largest_number():
     print('Expected and actual are:', expected, answer)
 
     # TO DO 2 (continued): Add your ADDITIONAL test(s) here:
-
+    # Test 4:
+    expected = 27
+    answer = largest_number([(3, -1, 0),
+                             (13, 10, 27, 10),
+                             [26, -28]])
+    print('Expected and actual are:', expected, answer)
 
 def largest_number(seq_seq):
     """
@@ -71,6 +76,14 @@ def largest_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
+    start_sequence = seq_seq[0]
+    greatest_num = start_sequence[0]
+    for j in range(len(seq_seq)):
+        subsequence = seq_seq[j]
+        for k in range(len(subsequence)):
+            if subsequence[k] > greatest_num:
+                greatest_num = subsequence[k]
+    return greatest_num
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -80,7 +93,7 @@ def largest_number(seq_seq):
 def run_test_largest_negative_number():
     """ Tests the    largest_negative_number    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  largest_negative_number  function defined below.
     #
     #   Include enough tests to give you confidence that your solution
@@ -90,8 +103,26 @@ def run_test_largest_negative_number():
     print('-------------------------------------------------')
     print('Testing the   LARGEST_NEGATIVE_NUMBER   function:')
     print('-------------------------------------------------')
+    # Test 1:
+    expected = -1
+    answer = largest_number([(-3, 1, 4),
+                             (-13, 10, -11, 7, 10),
+                             [-1, 2, 3, -4]])
+    print('Expected and actual are:', expected, answer)
 
+    # Test 2:
+    expected = 13
+    answer = largest_number([(3, 0),
+                             (-33, 10, -.0001, 7, -2),
+                             [200, -200]])
+    print('Expected and actual are:', expected, answer)
 
+    # Test 3:
+    expected = None
+    answer = largest_number([(3, 1, 4),
+                             (13, 10, 11, 7, 10),
+                             [1, 2, 3, 4]])
+    print('Expected and actual are:', expected, answer)
 def largest_negative_number(seq_seq):
     """
     Returns the largest NEGATIVE number in the given sequence of
