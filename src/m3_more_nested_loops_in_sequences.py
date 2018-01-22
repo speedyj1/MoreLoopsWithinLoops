@@ -76,14 +76,16 @@ def largest_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
-    start_sequence = seq_seq[0]
-    greatest_num = start_sequence[0]
+    greatest_num = 0
     for j in range(len(seq_seq)):
         subsequence = seq_seq[j]
         for k in range(len(subsequence)):
             if subsequence[k] > greatest_num:
                 greatest_num = subsequence[k]
-    return greatest_num
+    if greatest_num == 0:
+        return None
+    else:
+        return greatest_num
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -385,8 +387,17 @@ def first_is_elsewhere_too(seq_seq):
       :type seq_seq: (list, tuple)
     and the given argument is a sequence of sequences.
     """
+    for j in range(1, len(seq_seq)):
+        subsequence_first = seq_seq[0]
+        subsequence = seq_seq[j]
+        for k in range(len(subsequence)):
+            for l in range(len(subsequence_first)):
+                if subsequence[k] == subsequence_first[l]:
+                    return True
+    return False
+
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
