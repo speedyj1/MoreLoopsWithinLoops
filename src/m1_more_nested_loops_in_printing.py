@@ -55,10 +55,15 @@ def triangle_right_justified(r):
     For purposes of "lining up", assume r is a single digit.
     """
     for j in range(r):
-        for k in range(j):
-            print()
+        count = 0
+        for k in range(r-j+1):
+            print(' ', end='')
+        for l in range(j+1):
+            count += 1
+            print(count,end='')
+        print('')
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: Do the following problem FIRST, then convert x's to spaces:
@@ -111,8 +116,16 @@ def triangle_upside_down(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
+    for j in range(r):
+        count = 0
+        for k in range(j):
+            print(' ', end='')
+        for l in range(r-j):
+            count += 1
+            print(count,end='')
+        print('')
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -162,8 +175,21 @@ def vee(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
+    for j in range(r):
+        count = 0
+        for k in range(j):
+            print(' ', end='')
+        for l in range(r-j):
+            count += 1
+            print(count,end='')
+        print(end='-')
+        for m in range(r-j, 0, -1):
+            print(m, end='')
+        for n in range(j):
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -219,11 +245,13 @@ def numbers_constant_forward(r, maxnum, n):
     Preconditions:  r, maxnum and n are positive integers.
     """
     for j in range(r):
-        for k in range(1, maxnum + 1):
-            print(k, end='')
+        for k in range(maxnum):
+            print(' ', end='')
+            for l in range(n):
+                print(k, end='')
         print()
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: What loop structure do you need for this problem?
@@ -266,8 +294,14 @@ def numbers_constant_backwards(r, maxnum, n):
        777 666 555 444 333 222 111
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for j in range(r):
+        for k in range(maxnum, 0, -1):
+            print(' ', end='')
+            for l in range(n):
+                print(k, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -318,8 +352,14 @@ def numbers_increasing_forward(r, maxnum):
 
     Preconditions:  r and maxnum are positive integers.
     """
+    for j in range(r):
+        for k in range(maxnum+1):
+            print(' ', end='')
+            for l in range(k):
+                print(k, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:

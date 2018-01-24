@@ -5,7 +5,7 @@ in the context of SEQUENCES OF SUB-SEQUENCES.
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
          their colleagues and Jack Speedy.
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
+import math as math
 
 def main():
     """ Calls the other functions to test them. """
@@ -76,18 +76,17 @@ def largest_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
-    greatest_num = 0
+    greatest_num = None
     for j in range(len(seq_seq)):
         subsequence = seq_seq[j]
         for k in range(len(subsequence)):
+            if greatest_num == None:
+                greatest_num = subsequence[k]
             if subsequence[k] > greatest_num:
                 greatest_num = subsequence[k]
-    if greatest_num == 0:
-        return None
-    else:
-        return greatest_num
+    return greatest_num
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -147,6 +146,16 @@ def largest_negative_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
+    greatest_neg_num = None
+    for j in range(len(seq_seq)):
+        subsequence = seq_seq[j]
+        for k in range(len(subsequence)):
+            if subsequence[k] < 0:
+                if math.fabs(subsequence[k]) > math.fabs(greatest_neg_num):
+                    greatest_neg_num = subsequence[k]
+            if subsequence[k] > 0:
+                greatest_neg_num = None
+    return greatest_neg_num
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
