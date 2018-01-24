@@ -151,13 +151,11 @@ def largest_negative_number(seq_seq):
         subsequence = seq_seq[j]
         for k in range(len(subsequence)):
             if subsequence[k] < 0:
-                if math.fabs(subsequence[k]) > math.fabs(greatest_neg_num):
+                if subsequence[k] < greatest_neg_num:
                     greatest_neg_num = subsequence[k]
-            if subsequence[k] > 0:
-                greatest_neg_num = None
     return greatest_neg_num
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # CHALLENGE: Try to solve this problem with no additional sequences
